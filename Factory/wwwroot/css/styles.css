@@ -12,7 +12,7 @@ div#header {
   position: absolute;
   width: 100%;
   text-align: center;
-  background-color: grey;
+  background-color: lightgray;
   color: navy;
   font-style: italic;
   font-size: 12px;
@@ -25,7 +25,7 @@ div#footer {
   position: absolute;
   width: 100%;
   text-align: center;
-  background-color: grey;
+  background-color: lightgray;
   font-size: 12px;
   padding:  8px;
 }
