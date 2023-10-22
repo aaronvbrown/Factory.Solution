@@ -18,7 +18,7 @@ namespace Factory.Controllers
 
     public ActionResult Index()
     {
-      return View(_db.Tags.ToList());
+      return View(_db.EngineerMachines.ToList());
     }
   }
 }

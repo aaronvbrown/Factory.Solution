@@ -6,6 +6,6 @@ namespace Factory.Models
   {
     public int EngineerId { get; set; }
     public string FirstName { get; set; }
-    public List<EngineerTag> JoinEntities { get; }
+    public List<EngineerMachine> JoinEntities { get; }
   }
 }

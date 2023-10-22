@@ -7,18 +7,18 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Factory.Controllers
 {
-  public class TagsController : Controller
+  public class EngineerMachinesController : Controller
   {
     private readonly FactoryContext _db;
 
-    public TagsController(FactoryContext db)
+    public EngineerMachinesController(FactoryContext db)
     {
       _db = db;
     }
 
     public ActionResult Index()
     {
-      return View(_db.Tags.ToList());
+      return View(_db.EngineerMachines.ToList());
     }
   }
 }
