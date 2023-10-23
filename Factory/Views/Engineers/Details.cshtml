@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Engineer;
+@using Factory.Models;
+@using System.Collections.Generic;
+
+<div class=headerpadding></div>
+
+<h4>Engineer Details</h4>
+<hr />
+<h4>@Html.DisplayNameFor(model => model.FirstName): @Html.DisplayFor(model => model.FirstName)</h4>
+@* <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3> *@
+
+
+@* <h4>@Html.ActionLink("Edit Engineer", "Edit", new { id = Model.EngineerId })</h4> *@
