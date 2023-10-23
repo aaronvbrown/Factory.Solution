@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Factory.Migrations
 {
-    public partial class initial : Migration
+    public partial class addNewinitial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,14 +16,14 @@ namespace Factory.Migrations
                 name: "Engineers",
                 columns: table => new
                 {
-                    EngineerID = table.Column<int>(type: "int", nullable: false)
+                    EngineerId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     FirstName = table.Column<string>(type: "longtext", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Engineers", x => x.EngineerID);
+                    table.PrimaryKey("PK_Engineers", x => x.EngineerId);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -43,24 +43,26 @@ namespace Factory.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "EngineerMachine",
+                name: "EngineerMachines",
                 columns: table => new
                 {
-                    EngineersEngineerID = table.Column<int>(type: "int", nullable: false),
-                    MachinesMachineId = table.Column<int>(type: "int", nullable: false)
+                    EngineerMachineId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    EngineerId = table.Column<int>(type: "int", nullable: false),
+                    MachineId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_EngineerMachine", x => new { x.EngineersEngineerID, x.MachinesMachineId });
+                    table.PrimaryKey("PK_EngineerMachines", x => x.EngineerMachineId);
                     table.ForeignKey(
-                        name: "FK_EngineerMachine_Engineers_EngineersEngineerID",
-                        column: x => x.EngineersEngineerID,
+                        name: "FK_EngineerMachines_Engineers_EngineerId",
+                        column: x => x.EngineerId,
                         principalTable: "Engineers",
-                        principalColumn: "EngineerID",
+                        principalColumn: "EngineerId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_EngineerMachine_Machines_MachinesMachineId",
-                        column: x => x.MachinesMachineId,
+                        name: "FK_EngineerMachines_Machines_MachineId",
+                        column: x => x.MachineId,
                         principalTable: "Machines",
                         principalColumn: "MachineId",
                         onDelete: ReferentialAction.Cascade);
@@ -68,15 +70,20 @@ namespace Factory.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateIndex(
-                name: "IX_EngineerMachine_MachinesMachineId",
-                table: "EngineerMachine",
-                column: "MachinesMachineId");
+                name: "IX_EngineerMachines_EngineerId",
+                table: "EngineerMachines",
+                column: "EngineerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_EngineerMachines_MachineId",
+                table: "EngineerMachines",
+                column: "MachineId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "EngineerMachine");
+                name: "EngineerMachines");
 
             migrationBuilder.DropTable(
                 name: "Engineers");

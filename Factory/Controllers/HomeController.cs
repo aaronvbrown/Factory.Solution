@@ -7,9 +7,9 @@ namespace Factory.Controllers
 {
   public class HomeController : Controller
   {
-    private readonly FactorContext _db;
+    private readonly FactoryContext _db;
 
-    public HomeController(ToDoListContext db)
+    public HomeController(FactoryContext db)
     {
       _db = db;
     }
@@ -17,8 +17,8 @@ namespace Factory.Controllers
     [HttpGet("/")]
     public ActionResult Index()
     {
-      Engineer[] engineers = _db.Engineers.ToArray[];
-      Machine[] machines = _db.Machines.ToArray[];
+      Engineer[] engineers = _db.Engineers.ToArray();
+      Machine[] machines = _db.Machines.ToArray();
       Dictionary<string, object[]> model = new Dictionary<string, object[]>();
       model.Add("machines", machines);
       model.Add("engineers", engineers);
