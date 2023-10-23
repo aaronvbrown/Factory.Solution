@@ -22,7 +22,7 @@ namespace Factory.Controllers
       Dictionary<string, object[]> model = new Dictionary<string, object[]>();
       model.Add("machines", machines);
       model.Add("engineers", engineers);
-      return View();
+      return View(model);
     }
   }
 }
