@@ -1,8 +1,8 @@
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Factory.Models;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Factory.Controllers
@@ -18,12 +18,20 @@ namespace Factory.Controllers
 
     public ActionResult Index()
     {
-      return View(_db.EngineerMachines.ToList());
+      return View(_db.Engineers.ToList());
     }
 
     public ActionResult Create()
     {
       return View();
+    }
+
+    [HttpPost]
+    public ActionResult Create(Engineer engineer)
+    {
+      _db.Engineers.Add(engineer);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
     }
   }
 }

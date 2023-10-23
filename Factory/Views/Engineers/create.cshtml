@@ -3,11 +3,12 @@
 }
 
 @using Factory.Models;
-@model Factory.Models.Engineer;
+@model Factory.Models.Engineer
 
 <div class=headerpadding></div>
 
 <h4>Add a new Engineer</h4>
+<p>this is a test</P>
 
 @using (Html.BeginForm())
 {
@@ -17,4 +18,4 @@
   <input type="submit" value="Add new engineer" />
 }
 
-<p>@Html.ActionLInk("Show all engineers", "Index")</p>
+<p>@Html.ActionLink("Show all engineers", "Index")</p>
