@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Machine;
+@using Factory.Models;
+@using System.Collections.Generic;
+
+<div class=headerpadding></div>
+
+<h4>Edit This Machine: @Html.DisplayFor(model => model.Description)</h4>
+<hr />
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.MachineId)
+
+  @Html.LabelFor(model => model.Description)
+  @Html.EditorFor(model => model.Description)
+
+  <input type="submit" value="Update">
+}
+<h4>@Html.ActionLink("Delete Machine", "Delete", new { id = Model.MachineId })</h4>

@@ -1,0 +1,16 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Machine
+@using Factory.Models;
+@using System.Collections.Generic;
+
+<div class=headerpadding></div>
+
+<h4>Machine Details</h4>
+<hr />
+<h4>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</h4>
+
+
+<h4>@Html.ActionLink("Edit Machine", "Edit", new { id = Model.MachineId })</h4>
