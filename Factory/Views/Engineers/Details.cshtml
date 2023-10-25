@@ -15,7 +15,7 @@
 @if(@Model.JoinEntities.Count == 0)
 {
   <p>This engineer isn't certified to maintain any machines.</p>
-  <p>@Html.ActionLink("Add machines to this engineer", "AddMachine")</p>
+  <p>@Html.ActionLink("Add machines to this engineer", "AddMachine", new { id = Model.EngineerId })</p>
 }
 else
 {
