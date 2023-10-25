@@ -12,5 +12,21 @@
 <hr />
 <h4>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</h4>
 
+@if(@Model.JoinEntities.Count == 0)
+{
+  <p>No engineers are certified for this machine.</p>
+  <p>@Html.ActionLink("Add engineers to this machine", "AddEngineer", new { id = Model.MachineId })</p>
+}
+else
+{
+  <h4>Engineers certified for this machine:</h4>
+  <ul>
+    @foreach(EngineerMachine join in Model.JoinEntities)
+    {
+      <li>@join.Engineer.FirstName</li>
+      <p>@Html.ActionLink("Add another engineer to this machine", "AddEngineer", new { id = Model.MachineId })</p>
+    }
+  </ul>
+}
 
 <h4>@Html.ActionLink("Edit Machine", "Edit", new { id = Model.MachineId })</h4>
