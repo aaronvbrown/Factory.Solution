@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Engineer;
+
+<div class=headerpadding></div>
+
+<h4>Add machine certifications to engineer:  @Html.DisplayFor(model => model.FirstName)</h4>
+<hr />
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.EngineerId)
+
+  @Html.Label("Select a machine")
+  @Html.DropDownList("MachineId")
+
+  <input type="submit" value="Add new machine">
+}
+<p>@Html.ActionLink("Show All Certificatins", "Index")</p>

@@ -29,14 +29,23 @@ namespace Factory.Controllers
     [HttpPost]
     public ActionResult Create(Engineer engineer)
     {
-      _db.Engineers.Add(engineer);
-      _db.SaveChanges();
-      return RedirectToAction("Index");
+      if (!ModelState.IsValid)
+      {
+        return View(engineer);
+      }
+      else
+      {
+        _db.Engineers.Add(engineer);
+        _db.SaveChanges();
+        return RedirectToAction("Index");
+      }
     }
 
     public ActionResult Details(int id)
     {
       Engineer thisEngineer = _db.Engineers
+                                    .Include(engineer => engineer.JoinEntities)
+                                    .ThenInclude(join => join.Machine)
                                     .FirstOrDefault(engineer => engineer.EngineerId == id);
       return View(thisEngineer);
     }
@@ -70,5 +79,20 @@ namespace Factory.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+    public ActionResult AddMachine(int id)
+    {
+      Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
+      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Description");
+      return View(thisEngineer);
+    }
+
+    // [HttpPost]
+    // public ActionResult AddMachine(Engineer engineer, int MachineId)
+    // {
+    //   _db.EngineerMachines.Add(new EngineerMachine() { EngineerMachineId = });
+    //   _db.SaveChanges();
+    //   return RedirectToAction("Index");
+    // }
   }
 }
