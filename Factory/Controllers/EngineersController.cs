@@ -60,9 +60,16 @@ namespace Factory.Controllers
     [HttpPost]
     public ActionResult Edit(Engineer engineer)
     {
+      if (!ModelState.IsValid)
+      {
+        return View(engineer);
+      }
+      else
+      {
       _db.Engineers.Update(engineer);
       _db.SaveChanges();
       return RedirectToAction("Index");
+      }
     }
 
     public ActionResult Delete(int id)
