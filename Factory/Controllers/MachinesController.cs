@@ -113,9 +113,10 @@ namespace Factory.Controllers
     public ActionResult DeleteEngineer(int joinId)
     {
       EngineerMachine engineerMachine = _db.EngineerMachines.FirstOrDefault(join => join.EngineerMachineId == joinId);
+      int thisMachineId = engineerMachine.MachineId;
       _db.EngineerMachines.Remove(engineerMachine);
       _db.SaveChanges();
-      return RedirectToAction("Index");
+      return RedirectToAction("Details", new { id = thisMachineId });
     }
   }
 }
