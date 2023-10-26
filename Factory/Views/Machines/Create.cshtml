@@ -8,6 +8,7 @@
 <div class=headerpadding></div>
 
 <h4>Add a new Machine</h4>
+<p>@Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
 
 @using (Html.BeginForm())
 {
