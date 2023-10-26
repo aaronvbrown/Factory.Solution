@@ -29,8 +29,8 @@ else
         @Html.Hidden("joinId", @join.EngineerMachineId)
         <input type="submit" value="Delete"/>
       }
-      <p>@Html.ActionLink("Add another engineer to this machine", "AddEngineer", new { id = Model.MachineId })</p>
     }
+    <li>@Html.ActionLink("Add another engineer to this machine", "AddEngineer", new { id = Model.MachineId })</li>
   </ul>
 }
 
