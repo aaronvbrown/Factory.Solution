@@ -46,7 +46,14 @@ This utility allows for order creation and matching of machines and engineers to
 * None at this time
 * Please report any bugs at the [github repo issues page](https://github.com/aaronvbrown/Factory.Solution/issues)
 
+## Attributions
+  
+* <a href="https://commons.wikimedia.org/wiki/File:Factory_icon_blue.svg">Factory_icon.svg: Original by Tichovský Petr, vector by chris 論derivative work: Theanphibian</a>, Public domain, via Wikimedia Commons
+
+
 ## License
 MIT License
+
+
 
 Copyright (c) 2023 Aaron Brown
